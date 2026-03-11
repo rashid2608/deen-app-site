@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deen — Your Daily Islamic Companion</title>
+  <meta name="description" content="Free Islamic app with Quran, prayer times, Qibla compass, dhikr, duas, Hajj &amp; Umrah guides, and more. No ads. No data collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1B4332;
+      --primary-light: #2D6A4F;
+      --accent: #40916C;
+      --bg: #FAFCFA;
+      --surface: #FFFFFF;
+      --text: #1A1A2E;
+      --text-light: #6B7280;
+      --divider: #E5E7EB;
+      --radius: 16px;
+      --max-w: 960px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px 64px;
+    }
+    .hero-icon {
+      width: 88px; height: 88px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-icon .material-icons-round { font-size: 44px; }
+    .hero h1 { font-size: 48px; font-weight: 800; letter-spacing: 1px; }
+    .hero .tagline {
+      font-size: 20px;
+      opacity: 0.85;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+    .hero .subtitle {
+      max-width: 600px;
+      margin: 24px auto 0;
+      font-size: 16px;
+      line-height: 1.7;
+      opacity: 0.75;
+    }
+    .hero-badges {
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+    .badge .material-icons-round { font-size: 18px; }
+
+    /* ── Section ── */
+    section { max-width: var(--max-w); margin: 0 auto; padding: 64px 24px; }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    /* ── Features Grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(27,67,50,0.1);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .feature-icon .material-icons-round { font-size: 24px; color: #fff; }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+    /* ── Credits ── */
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .credit-card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .credit-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .credit-card .org { font-size: 13px; color: var(--text-light); margin-bottom: 12px; }
+    .credit-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+    .credit-card a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .credit-card a:hover { text-decoration: underline; }
+
+    /* ── Legal links bar ── */
+    .legal-section {
+      background: var(--primary);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .legal-section .links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .legal-section a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .legal-section a:hover { text-decoration: underline; }
+    .legal-section .copyright { font-size: 14px; }
+    .legal-section .made-with {
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* ── Disclaimer banner ── */
+    .disclaimer {
+      background: #F0FFF4;
+      border: 1px solid #C6F6D5;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .disclaimer p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .disclaimer strong { color: var(--primary); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero { padding: 56px 20px 48px; }
+      .hero h1 { font-size: 36px; }
+      .hero .tagline { font-size: 17px; }
+      section { padding: 48px 20px; }
+      .section-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-icon">
+      <span class="material-icons-round">auto_awesome</span>
+    </div>
+    <h1>Deen</h1>
+    <p class="tagline">Your Daily Islamic Companion</p>
+    <p class="subtitle">
+      A beautifully crafted, completely free Islamic app — no ads, no data collection,
+      no subscriptions. Built as sadaqah jariyah for the Ummah.
+    </p>
+    <div class="hero-badges">
+      <span class="badge"><span class="material-icons-round">block</span> No Ads</span>
+      <span class="badge"><span class="material-icons-round">lock</span> No Data Collection</span>
+      <span class="badge"><span class="material-icons-round">volunteer_activism</span> Sadaqah Jariyah</span>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">
+      From daily prayers to Quran reading, from dhikr to Hajj guidance — one app for your entire spiritual journey.
+    </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#2CA4AB;">
+          <span class="material-icons-round">menu_book</span>
+        </div>
+        <h3>Complete Quran</h3>
+        <p>Beautiful mushaf view with 9 translations, transliteration, verse-by-verse audio recitation from renowned reciters, and offline support.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#6C63FF;">
+          <span class="material-icons-round">schedule</span>
+        </div>
+        <h3>Prayer Times</h3>
+        <p>Accurate prayer times based on your location with adhan notifications for every salah. Never miss a prayer again.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#E67E22;">
+          <span class="material-icons-round">explore</span>
+        </div>
+        <h3>Qibla Compass</h3>
+        <p>Real-time Qibla direction finder using your device compass and GPS. Know the exact direction to the Ka'bah from anywhere.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#8E24AA;">
+          <span class="material-icons-round">spa</span>
+        </div>
+        <h3>Dhikr &amp; Tasbih</h3>
+        <p>Daily adhkar with counter, tasbih counter with 15+ presets, and morning/evening remembrance collections.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#D4437E;">
+          <span class="material-icons-round">favorite</span>
+        </div>
+        <h3>Dua Collection</h3>
+        <p>Comprehensive collection of authentic duas for every occasion — from daily life to special moments.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#1B5E20;">
+          <span class="material-icons-round">library_books</span>
+        </div>
+        <h3>Hadith</h3>
+        <p>Browse hadith from the six major collections including Bukhari, Muslim, Tirmidhi, Abu Dawud, Nasa'i, and Ibn Majah.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F59E0B;">
+          <span class="material-icons-round">auto_awesome</span>
+        </div>
+        <h3>99 Names of Allah</h3>
+        <p>Learn the beautiful names of Allah with Arabic text, transliteration, meanings, and benefits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#0EA5E9;">
+          <span class="material-icons-round">brightness_3</span>
+        </div>
+        <h3>Ramadan &amp; Guides</h3>
+        <p>Complete guides for Ramadan, Hajj, Umrah, and daily prayers — step-by-step with authentic references.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#64748B;">
+          <span class="material-icons-round">date_range</span>
+        </div>
+        <h3>Hijri Calendar</h3>
+        <p>Full Hijri calendar with Islamic events, holidays, and Gregorian-to-Hijri date conversion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section style="padding-top:0;">
+    <div class="disclaimer">
+      <p>
+        <strong>Non-Commercial &amp; Free Forever</strong> — Deen is built as sadaqah jariyah
+        (ongoing charity). No advertisements, no subscriptions, no data mining. Your privacy is
+        sacred, and your data stays on your device.
+      </p>
+    </div>
+  </section>
+
+  <!-- Acknowledgments -->
+  <section>
+    <h2 class="section-title">Acknowledgments</h2>
+    <p class="section-subtitle">
+      Deen is made possible by the generous work of these organisations and open-source projects.
+      No revenue is generated from the use of these services.
+    </p>
+    <div class="credits-grid">
+      <div class="credit-card">
+        <h3>Quran Foundation</h3>
+        <p class="org">quran.com</p>
+        <p>Quran text (Uthmani script), translations, transliterations, verse-by-verse audio recitations, mushaf page images, and reciter metadata.</p>
+        <a href="https://quran.com" target="_blank" rel="noopener">quran.com &rarr;</a>
+      </div>
+      <div class="credit-card">
+        <h3>AlAdhan — Islamic Network</h3>
+        <p class="org">aladhan.com</p>
+        <p>Prayer times by geographic coordinates and Gregorian-to-Hijri date conversion. Calculations based on methods from praytimes.org.</p>
+        <a href="https://aladhan.com" target="_blank" rel="noopener">aladhan.com &rarr;</a>
+      </div>
+      <div class="credit-card">
+        <h3>Hadith API</h3>
+        <p class="org">fawazahmed0 — open-source (Unlicense)</p>
+        <p>Multi-language hadith from the six major collections: Bukhari, Muslim, Tirmidhi, Abu Dawud, Nasa'i, and Ibn Majah.</p>
+        <a href="https://github.com/fawazahmed0/hadith-api" target="_blank" rel="noopener">GitHub &rarr;</a>
+      </div>
+      <div class="credit-card">
+        <h3>KFGQPC Uthmanic Script</h3>
+        <p class="org">King Fahd Glorious Quran Printing Complex</p>
+        <p>UthmanicHafs font for Arabic Quran display. Distributed free for non-commercial use. All IP rights remain with KFGQPC.</p>
+      </div>
+      <div class="credit-card">
+        <h3>Content References</h3>
+        <p class="org">Islamic scholarly sources</p>
+        <p>The Holy Quran, Sahih al-Bukhari &amp; Muslim, Fortress of the Muslim (Hisn al-Muslim), Riyad as-Salihin, and Fiqh al-Sunnah.</p>
+      </div>
+      <div class="credit-card">
+        <h3>Audio Recitations</h3>
+        <p class="org">via Quran.com platform</p>
+        <p>Audio recitations are the intellectual property of their respective reciters, streamed and cached solely for personal, non-commercial use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="legal-section">
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="mailto:rashidiitkgp@gmail.com">Contact</a>
+    </div>
+    <p class="copyright">&copy; 2026 Deen App. All rights reserved.</p>
+    <p class="copyright">Built by Mohammed Harun Rashid</p>
+    <p class="made-with">Made with love for the Ummah</p>
+  </footer>
+
+</body>
+</html>
