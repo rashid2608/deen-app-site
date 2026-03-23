@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siraat — The Straight Path</title>
   <meta name="description" content="Free Islamic app with complete Quran, 6 Hadith collections, prayer times &amp; adhan, 279 duas, 144 dhikr, Hajj &amp; Umrah guides, Ramadan guide, 99 Names of Allah, emotional support, and more in 9 languages. No ads. No data collection.">
+  <link rel="icon" type="image/png" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -38,17 +39,12 @@
       text-align: center;
       padding: 80px 24px 64px;
     }
-    .hero-icon {
-      width: 88px; height: 88px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .hero-app-icon {
+      width: 100px; height: 100px;
+      border-radius: 24px;
       margin-bottom: 24px;
-      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     }
-    .hero-icon .material-icons-round { font-size: 44px; }
     .hero h1 { font-size: 48px; font-weight: 800; letter-spacing: 1px; }
     .hero .tagline {
       font-size: 20px;
@@ -253,9 +249,7 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero-icon">
-      <span class="material-icons-round">auto_awesome</span>
-    </div>
+    <img src="icon.png" alt="Siraat App Icon" class="hero-app-icon">
     <h1>Siraat</h1>
     <p class="tagline">The Straight Path — Your Daily Islamic Companion</p>
     <p class="subtitle">
