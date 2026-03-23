@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siraat — The Straight Path</title>
-  <meta name="description" content="Free Islamic app with Quran, prayer times, Qibla compass, dhikr, duas, Hajj &amp; Umrah guides, and more. No ads. No personal data collection.">
+  <meta name="description" content="Free Islamic app with complete Quran, 6 Hadith collections, prayer times &amp; adhan, 279 duas, 144 dhikr, Hajj &amp; Umrah guides, Ramadan guide, 99 Names of Allah, emotional support, and more in 9 languages. No ads. No data collection.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -200,6 +200,43 @@
     }
     .disclaimer strong { color: var(--primary); }
 
+    /* ── Store Badges ── */
+    .store-badges {
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #000;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .store-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .store-badge-icon { font-size: 28px; }
+    .store-badge-text { text-align: left; line-height: 1.2; }
+    .store-badge-text small {
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.8;
+      display: block;
+    }
+    .store-badge-text span {
+      font-size: 18px;
+      font-weight: 700;
+      display: block;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .hero { padding: 56px 20px 48px; }
@@ -207,6 +244,8 @@
       .hero .tagline { font-size: 17px; }
       section { padding: 48px 20px; }
       .section-title { font-size: 24px; }
+      .store-badge { padding: 10px 22px; }
+      .store-badge-text span { font-size: 16px; }
     }
   </style>
 </head>
@@ -228,6 +267,29 @@
       <span class="badge"><span class="material-icons-round">lock</span> No Data Collection</span>
       <span class="badge"><span class="material-icons-round">volunteer_activism</span> Sadaqah Jariyah</span>
     </div>
+    <div class="store-badges">
+      <a href="https://play.google.com/store/apps/details?id=com.harunrashid.islamicapp" target="_blank" rel="noopener" class="store-badge">
+        <svg class="store-badge-icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+          <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734c0-.384.22-.72.54-.893l.07-.027z" fill="#4285F4"/>
+          <path d="M17.12 8.56L13.793 12l3.328 3.44 3.756-2.132c.654-.372.654-1.244 0-1.616L17.12 8.56z" fill="#FBBC04"/>
+          <path d="M3.61 1.814L13.793 12 17.12 8.56 6.137.334A1.002 1.002 0 0 0 5 .334L3.61 1.814z" fill="#34A853"/>
+          <path d="M3.61 22.186L13.793 12l3.328 3.44-10.984 8.226A1.002 1.002 0 0 1 5 23.666l-1.39-1.48z" fill="#EA4335"/>
+        </svg>
+        <div class="store-badge-text">
+          <small>GET IT ON</small>
+          <span>Google Play</span>
+        </div>
+      </a>
+      <a href="https://apps.apple.com/app/id6760745449" target="_blank" rel="noopener" class="store-badge">
+        <svg class="store-badge-icon" viewBox="0 0 24 24" width="28" height="28" fill="#fff">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        <div class="store-badge-text">
+          <small>Download on the</small>
+          <span>App Store</span>
+        </div>
+      </a>
+    </div>
   </header>
 
   <!-- Features -->
@@ -242,14 +304,21 @@
           <span class="material-icons-round">menu_book</span>
         </div>
         <h3>Complete Quran</h3>
-        <p>Beautiful mushaf view with 9 translations, transliteration, verse-by-verse audio recitation from renowned reciters, and offline support.</p>
+        <p>Beautiful mushaf view with multiple translations, transliteration, verse-by-verse audio from renowned reciters, and offline downloads.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#1B5E20;">
+          <span class="material-icons-round">library_books</span>
+        </div>
+        <h3>Six Hadith Collections</h3>
+        <p>Browse the Kutub al-Sittah — Bukhari, Muslim, Tirmidhi, Abu Dawud, Nasa'i, and Ibn Majah — with daily hadith rotation.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#6C63FF;">
           <span class="material-icons-round">schedule</span>
         </div>
-        <h3>Prayer Times</h3>
-        <p>Accurate prayer times based on your location with adhan notifications for every salah. Never miss a prayer again.</p>
+        <h3>Prayer Times &amp; Adhan</h3>
+        <p>Accurate prayer times with 16 calculation methods, Hanafi/Shafi'i Asr, and per-prayer adhan notifications with a distinct Fajr call.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#E67E22;">
@@ -262,43 +331,78 @@
         <div class="feature-icon" style="background:#8E24AA;">
           <span class="material-icons-round">spa</span>
         </div>
-        <h3>Dhikr &amp; Tasbih</h3>
-        <p>Daily adhkar with counter, tasbih counter with 15+ presets, and morning/evening remembrance collections.</p>
+        <h3>144 Dhikr &amp; Tasbih</h3>
+        <p>144 adhkar across 12 categories — morning, evening, after prayer, sleep, protection, and more — with built-in counter and digital tasbih.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#D4437E;">
           <span class="material-icons-round">favorite</span>
         </div>
-        <h3>Dua Collection</h3>
-        <p>Comprehensive collection of authentic duas for every occasion — from daily life to special moments.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:#1B5E20;">
-          <span class="material-icons-round">library_books</span>
-        </div>
-        <h3>Hadith</h3>
-        <p>Browse hadith from the six major collections including Bukhari, Muslim, Tirmidhi, Abu Dawud, Nasa'i, and Ibn Majah.</p>
+        <h3>279 Duas in 29 Categories</h3>
+        <p>From daily essentials to Quranic duas of the Prophets, ruqyah, healing, anxiety, marriage, travel, Ramadan, and Hajj.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#F59E0B;">
           <span class="material-icons-round">auto_awesome</span>
         </div>
         <h3>99 Names of Allah</h3>
-        <p>Learn the beautiful names of Allah with Arabic text, transliteration, meanings, and benefits.</p>
+        <p>Learn the beautiful names of Allah with Arabic text, transliteration, and meanings in 10+ languages.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EF4444;">
+          <span class="material-icons-round">self_improvement</span>
+        </div>
+        <h3>Emotional Support</h3>
+        <p>Feeling sad, anxious, or lonely? 21 emotional states matched with curated Quran verses, hadith, and duas to bring comfort.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#0EA5E9;">
           <span class="material-icons-round">brightness_3</span>
         </div>
-        <h3>Ramadan &amp; Guides</h3>
-        <p>Complete guides for Ramadan, Hajj, Umrah, and daily prayers — step-by-step with authentic references.</p>
+        <h3>Ramadan Guide</h3>
+        <p>22 topics covering fasting rules, suhoor &amp; iftar, tarawih, Laylat al-Qadr, Zakat al-Fitr, spiritual growth, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#0D9488;">
+          <span class="material-icons-round">map</span>
+        </div>
+        <h3>Hajj &amp; Umrah Guides</h3>
+        <p>Step-by-step guides — 15 Hajj cards and 12 Umrah cards covering every ritual from Ihram to the farewell Tawaf.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#7C3AED;">
+          <span class="material-icons-round">verified</span>
+        </div>
+        <h3>Prayer Guide</h3>
+        <p>Complete guide for Wudu, the five Fard prayers, essential duas in prayer, Sunnah &amp; voluntary prayers, and special prayers.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" style="background:#64748B;">
           <span class="material-icons-round">date_range</span>
         </div>
-        <h3>Hijri Calendar</h3>
-        <p>Full Hijri calendar with Islamic events, holidays, and Gregorian-to-Hijri date conversion.</p>
+        <h3>Hijri Calendar &amp; Reminders</h3>
+        <p>Full Hijri calendar, 14+ special Islamic days tracked automatically, Jumu'ah content, and daily verse, hadith &amp; dua of the day.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EC4899;">
+          <span class="material-icons-round">card_giftcard</span>
+        </div>
+        <h3>Islamic Greetings</h3>
+        <p>Beautiful greetings for 10 occasions — Eid, Ramadan, Jumu'ah, Hajj, and more — available in 9 languages, ready to share.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#2563EB;">
+          <span class="material-icons-round">widgets</span>
+        </div>
+        <h3>5 Android Widgets</h3>
+        <p>Home screen widgets for next prayer countdown, full timetable, Hijri calendar, verse of the day, and dua of the day.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#059669;">
+          <span class="material-icons-round">language</span>
+        </div>
+        <h3>9 Languages</h3>
+        <p>Full app in English, Arabic, Urdu, Hindi, Bengali, Turkish, Indonesian, French, and Spanish — with RTL support.</p>
       </div>
     </div>
   </section>
