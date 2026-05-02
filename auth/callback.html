@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returning to Siraat…</title>
+  <meta name="description" content="Completing sign-in for the Siraat Islamic app.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1B4332;
+      --primary-light: #2D6A4F;
+      --accent: #40916C;
+      --bg: #FAFCFA;
+      --surface: #FFFFFF;
+      --text: #1A1A2E;
+      --text-light: #6B7280;
+      --error: #C62828;
+      --error-bg: #FFEBEE;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .icon-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(27, 67, 50, 0.25);
+    }
+
+    .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid var(--divider, #E5E7EB);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      width: 100%;
+    }
+
+    .btn:hover { background: var(--primary-light); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-light);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .btn-secondary:hover { background: rgba(0,0,0,0.04); }
+
+    .error-card .icon-wrap {
+      background: linear-gradient(135deg, #C62828 0%, #E57373 100%);
+      box-shadow: 0 8px 24px rgba(198, 40, 40, 0.25);
+    }
+
+    .error-card .icon-wrap .material-icons-round {
+      color: #fff;
+      font-size: 40px;
+    }
+
+    .error-detail {
+      background: var(--error-bg);
+      color: var(--error);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-top: 16px;
+      text-align: left;
+      word-break: break-word;
+      font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F1419;
+        --surface: #1A1F2E;
+        --text: #F1F5F9;
+        --text-light: #94A3B8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" id="card">
+    <div class="icon-wrap" id="icon-wrap">
+      <img src="../icon.png" alt="Siraat">
+    </div>
+
+    <div id="success-state">
+      <h1><span class="spinner"></span>Returning to Siraat…</h1>
+      <p>Hold tight, we're signing you in.</p>
+      <a href="#" class="btn hidden" id="open-app-btn">
+        <span class="material-icons-round" style="font-size: 18px;">launch</span>
+        Open in Siraat
+      </a>
+    </div>
+
+    <div id="error-state" class="hidden">
+      <h1>Sign-in didn't complete</h1>
+      <p id="error-message">Something went wrong while signing in.</p>
+      <div class="error-detail hidden" id="error-detail"></div>
+      <a href="#" class="btn" id="close-btn">
+        <span class="material-icons-round" style="font-size: 18px;">arrow_back</span>
+        Return to Siraat
+      </a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var APP_SCHEME = 'siraat://oauth/callback';
+
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      var state = params.get('state');
+      var error = params.get('error');
+      var errorDescription = params.get('error_description');
+      var sessionState = params.get('session_state');
+      var iss = params.get('iss');
+
+      var card = document.getElementById('card');
+      var successState = document.getElementById('success-state');
+      var errorState = document.getElementById('error-state');
+      var iconWrap = document.getElementById('icon-wrap');
+      var openAppBtn = document.getElementById('open-app-btn');
+      var errorMessage = document.getElementById('error-message');
+      var errorDetail = document.getElementById('error-detail');
+      var closeBtn = document.getElementById('close-btn');
+
+      function buildAppUrl(extraParams) {
+        var qs = new URLSearchParams();
+        Object.keys(extraParams).forEach(function (key) {
+          var value = extraParams[key];
+          if (value !== null && value !== undefined && value !== '') {
+            qs.set(key, value);
+          }
+        });
+        return APP_SCHEME + '?' + qs.toString();
+      }
+
+      function showError(message, detail) {
+        successState.classList.add('hidden');
+        errorState.classList.remove('hidden');
+        card.classList.add('error-card');
+        iconWrap.innerHTML = '<span class="material-icons-round">error_outline</span>';
+        errorMessage.textContent = message;
+        if (detail) {
+          errorDetail.textContent = detail;
+          errorDetail.classList.remove('hidden');
+        }
+      }
+
+      function attemptDeepLink(url) {
+        window.location.href = url;
+        setTimeout(function () {
+          openAppBtn.href = url;
+          openAppBtn.classList.remove('hidden');
+        }, 1500);
+      }
+
+      if (error) {
+        var appUrl = buildAppUrl({
+          error: error,
+          error_description: errorDescription,
+          state: state,
+        });
+        closeBtn.href = appUrl;
+
+        var friendly = error === 'access_denied'
+          ? 'You cancelled sign-in. You can try again anytime.'
+          : 'Quran.com couldn\'t complete the sign-in.';
+        showError(friendly, errorDescription || error);
+        return;
+      }
+
+      if (!code) {
+        closeBtn.href = APP_SCHEME;
+        showError(
+          'No authorization code was received.',
+          'The sign-in callback was opened without the expected parameters.',
+        );
+        return;
+      }
+
+      attemptDeepLink(buildAppUrl({
+        code: code,
+        state: state,
+        session_state: sessionState,
+        iss: iss,
+      }));
+    })();
+  </script>
+</body>
+</html>
