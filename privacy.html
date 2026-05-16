@@ -91,7 +91,7 @@
   <main class="content">
     <div class="effective">
       <strong>Effective Date:</strong> March 1, 2026 &nbsp;|&nbsp;
-      <strong>Last Updated:</strong> April 6, 2026
+      <strong>Last Updated:</strong> May 16, 2026
     </div>
 
     <h2>Overview</h2>
@@ -100,13 +100,15 @@
       (ongoing charity). Your privacy is of utmost importance to us. This policy explains what
       data is accessed, how it is used, and your rights.
     </p>
-    <p><strong>In short: we do not collect, store, or share any personal data. The only exception
-      is anonymous crash reports (described below) to help us fix bugs and improve stability.</strong></p>
+    <p><strong>In short: Siraat does not sell data, show ads, or run usage tracking. Most data stays
+      on your device. Optional Quran.com sign-in is used only when you choose to sync Quran-related
+      activity through Quran Foundation services. Anonymous crash reports are used to fix bugs and
+      improve stability.</strong></p>
 
     <h2>Data We Do NOT Collect</h2>
     <ul>
-      <li>No personal information (name, email, phone number)</li>
-      <li>No account registration or login required</li>
+      <li>No personal information is required to use Siraat</li>
+      <li>No Siraat account registration required</li>
       <li>No usage analytics or tracking</li>
       <li>No advertising identifiers</li>
       <li>No browsing or search history</li>
@@ -120,9 +122,11 @@
     </p>
     <ul>
       <li><strong>Reading progress</strong> — your last-read position in the Quran</li>
-      <li><strong>Bookmarks</strong> — saved verses and content</li>
-      <li><strong>Preferences</strong> — theme, translation choice, reciter selection, dhikr counters</li>
-      <li><strong>Cached content</strong> — downloaded Quran audio and mushaf images for offline use</li>
+      <li><strong>Bookmarks, collections, and notes</strong> — saved Quran verses, Quran notes, and other saved content</li>
+      <li><strong>Preferences</strong> — theme, translation choice, reciter selection, dhikr counters, prayer calculation method, and notification settings</li>
+      <li><strong>Cached content</strong> — downloaded Quran text, translations, audio, mushaf images, and upcoming prayer times for offline use</li>
+      <li><strong>Location cache</strong> — your last known approximate location, stored locally so prayer times can continue if location services are later disabled</li>
+      <li><strong>Optional Quran.com profile cache</strong> — if you sign in, basic profile details returned by Quran.com may be cached locally so your avatar and account state load quickly</li>
     </ul>
 
     <h2>Location Data</h2>
@@ -137,7 +141,22 @@
       Location data is processed on-device and sent only to the AlAdhan API
       (<a href="https://aladhan.com" style="color:var(--primary)">aladhan.com</a>) as latitude/longitude
       coordinates to calculate prayer times. No personally identifiable information is attached
-      to these requests. Location data is never stored on any server.
+      to these requests. Location data is never stored on any Siraat server. Siraat may store your
+      last known location locally on your device so prayer times can continue working if GPS or
+      location services are turned off later.
+    </p>
+
+    <h2>Quran.com Account Sync</h2>
+    <p>
+      Signing in with Quran.com is optional. You can continue using Siraat without signing in.
+      When you choose to sign in, authentication is handled through the official Quran.com OAuth
+      flow. Siraat does not receive or store your Quran.com password.
+    </p>
+    <p>
+      Quran.com sign-in is used to sync Quran-related features such as bookmarks, collections,
+      notes, last-read position, reading goals, streaks, profile information, and Quran Reflect
+      community actions where supported. This data is exchanged with Quran Foundation services
+      only to provide the sync and community features you choose to use.
     </p>
 
     <h2>Third-Party Services</h2>
@@ -145,11 +164,11 @@
     <ul>
       <li>
         <strong>Quran.com API</strong> (<a href="https://quran.com" style="color:var(--primary)">quran.com</a>)
-        — to fetch Quran text, translations, and audio recitations.
+        — to fetch Quran text, translations, audio recitations, Quran Reflect content, and optional account sync.
       </li>
       <li>
         <strong>AlAdhan API</strong> (<a href="https://aladhan.com" style="color:var(--primary)">aladhan.com</a>)
-        — to calculate prayer times and convert Hijri dates.
+        — to calculate prayer times, convert Hijri dates, and prefetch upcoming prayer times for offline use.
       </li>
       <li>
         <strong>Hadith API</strong> (<a href="https://github.com/fawazahmed0/hadith-api" style="color:var(--primary)">fawazahmed0</a>)
@@ -162,8 +181,8 @@
     </ul>
     <p>
       These services receive only the data necessary for their function (e.g., coordinates
-      for prayer times, chapter number for Quran text). No personal or identifying information
-      is sent. Please refer to each service's own privacy policy for how they handle requests.
+      for prayer times, chapter number for Quran text, or Quran.com account tokens when you
+      explicitly sign in). Please refer to each service's own privacy policy for how they handle requests.
     </p>
 
     <h2>Crash &amp; Error Reporting</h2>
@@ -209,9 +228,8 @@
 
     <h2>Data Deletion</h2>
     <p>
-      Siraat does not create any user accounts or store any data on external servers.
-      All app data is stored locally on your device. You can delete all your data at any
-      time by:
+      Siraat does not create its own user accounts. Most app data is stored locally on your
+      device. You can delete local app data at any time by:
     </p>
     <ul>
       <li><strong>Uninstalling the App</strong> — this removes all locally stored data including
@@ -220,17 +238,19 @@
         &rarr; Storage &rarr; Clear Data to reset the app without uninstalling.</li>
     </ul>
     <p>
-      Since no personal data is collected or stored on any server, there is no server-side
-      data to delete. If you have any concerns or requests regarding your data, please
-      contact us at <a href="mailto:rashidiitkgp@gmail.com" style="color:var(--primary)">rashidiitkgp@gmail.com</a>.
+      If you used optional Quran.com sync, signing out from Siraat stops sync on that device.
+      Data stored in your Quran.com account is managed by Quran.com / Quran Foundation, and
+      you should use their account tools or policies for account-level deletion requests. If
+      you have concerns about Siraat's local data handling, please contact us at
+      <a href="mailto:rashidiitkgp@gmail.com" style="color:var(--primary)">rashidiitkgp@gmail.com</a>.
     </p>
 
     <h2>Data Security</h2>
     <p>
-      Since we do not collect or store personal data on any server, there is no risk of
-      server-side data breaches. All user preferences and cached content remain on your
-      device and can be cleared by uninstalling the App or clearing its data through your
-      device settings.
+      Since Siraat does not operate a user-data server, your local preferences, cached Quran
+      content, cached prayer times, and last-known location remain on your device and can be
+      cleared by uninstalling the App or clearing its data through your device settings.
+      Optional Quran.com sync data is protected and managed by Quran Foundation services.
     </p>
 
     <h2>Changes to This Policy</h2>
