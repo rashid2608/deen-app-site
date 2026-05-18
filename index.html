@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siraat — The Straight Path</title>
-  <meta name="description" content="Free Islamic app with premium Quran reading, Quran Reflect, Quran.com sync, offline-ready prayer times, 6 Hadith collections, adhan, duas, dhikr, Hajj &amp; Umrah guides, Ramadan guide, 99 Names of Allah, emotional support, and more in 9 languages. No ads. Privacy-first.">
+  <meta name="description" content="Free Islamic app with premium Quran reading, Quran Reflect, optional Quran.com sync, offline-ready prayer times, 6 Hadith collections, adhan, duas, dhikr, Hajj &amp; Umrah guides, Ramadan guide, 99 Names of Allah, emotional support, and more in 9 languages. No ads. Privacy-first.">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -151,6 +151,51 @@
     }
     .credit-card a:hover { text-decoration: underline; }
 
+    /* ── Contact ── */
+    .contact-panel {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: 0 12px 32px rgba(27,67,50,0.06);
+    }
+    .contact-panel h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .contact-panel p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+    .contact-details {
+      display: grid;
+      gap: 12px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .contact-item .material-icons-round {
+      color: var(--primary);
+      font-size: 20px;
+    }
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
     /* ── Legal links bar ── */
     .legal-section {
       background: var(--primary);
@@ -242,6 +287,7 @@
       .section-title { font-size: 24px; }
       .store-badge { padding: 10px 22px; }
       .store-badge-text span { font-size: 16px; }
+      .contact-panel { grid-template-columns: 1fr; padding: 24px; }
     }
   </style>
 </head>
@@ -253,12 +299,12 @@
     <h1>Siraat</h1>
     <p class="tagline">The Straight Path — Your Daily Islamic Companion</p>
     <p class="subtitle">
-      A beautifully crafted, completely free Islamic app — no ads, no data collection,
-      no subscriptions. Built as sadaqah jariyah for the Ummah.
+      A beautifully crafted, completely free Islamic app — no ads, no subscriptions,
+      no required login. Optional Quran.com sync is available only if you choose it.
     </p>
     <div class="hero-badges">
       <span class="badge"><span class="material-icons-round">block</span> No Ads</span>
-      <span class="badge"><span class="material-icons-round">lock</span> No Data Collection</span>
+      <span class="badge"><span class="material-icons-round">lock</span> Optional Sync</span>
       <span class="badge"><span class="material-icons-round">volunteer_activism</span> Sadaqah Jariyah</span>
     </div>
     <div class="store-badges">
@@ -451,8 +497,8 @@
     <div class="disclaimer">
       <p>
         <strong>Non-Commercial &amp; Free Forever</strong> — Siraat is built as sadaqah jariyah
-        (ongoing charity). No advertisements, no subscriptions, no data mining. Your privacy is
-        sacred, and your data stays on your device.
+        (ongoing charity). No advertisements, no subscriptions, and no data selling. Most app data
+        stays on your device; Quran.com sync and Quran Reflect are optional and only used when you sign in.
       </p>
     </div>
   </section>
@@ -501,13 +547,40 @@
     </div>
   </section>
 
+  <!-- Contact -->
+  <section id="contact" style="padding-top:0;">
+    <div class="contact-panel">
+      <div>
+        <h2>Contact &amp; Collaboration</h2>
+        <p>
+          For collaboration, feedback, app review questions, support, or partnership
+          conversations around Siraat, you can reach the developer directly.
+        </p>
+      </div>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="material-icons-round">person</span>
+          <span><strong>Name:</strong> Mohammed Harun Rashid</span>
+        </div>
+        <div class="contact-item">
+          <span class="material-icons-round">email</span>
+          <span><strong>Email:</strong> <a href="mailto:rashidiitkgp@gmail.com">rashidiitkgp@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="material-icons-round">call</span>
+          <span><strong>Mobile:</strong> <a href="tel:+917548909542">+91 7548909542</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="legal-section">
     <div class="links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="delete-data.html">Data Deletion</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="mailto:rashidiitkgp@gmail.com">Contact</a>
+      <a href="#contact">Contact</a>
     </div>
     <p class="copyright">&copy; 2026 Siraat App. All rights reserved.</p>
     <p class="copyright">Built by Mohammed Harun Rashid</p>
